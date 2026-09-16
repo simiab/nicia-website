@@ -32,6 +32,18 @@
       This page requires JavaScript to display.
     </div>
   </noscript>
+  <style>x-dc{visibility:hidden}</style>
+  <script>
+  (function(){
+    function root(){ return document.querySelector('x-dc'); }
+    function reveal(){ var d=root(); if(d) d.style.visibility='visible'; }
+    var t=setInterval(function(){
+      var d=root();
+      if(d && !d.querySelector('sc-if,sc-for,helmet,sc-helmet,dc-import')){ clearInterval(t); reveal(); }
+    },30);
+    setTimeout(function(){ clearInterval(t); reveal(); },5000);
+  })();
+  </script>
 </head>
 <body>
   <div id="__bundler_thumbnail">
