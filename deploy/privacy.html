@@ -44,6 +44,23 @@
     setTimeout(function(){ clearInterval(t); reveal(); },5000);
   })();
   </script>
+  <style>#__om_cover{position:fixed;inset:0;background:#FFFDF4;z-index:2147483647;opacity:1;transition:opacity 260ms cubic-bezier(.33,0,.2,1);pointer-events:none}</style>
+  <script>
+  (function(){
+    var c=document.createElement('div'); c.id='__om_cover';
+    function mount(){ if(document.body && !c.parentNode) document.body.appendChild(c); }
+    if(document.body) mount(); else document.addEventListener('DOMContentLoaded',mount);
+    function ready(){
+      var r=document.getElementById('dc-root');
+      if(!r||!r.children.length) return false;
+      if(r.querySelector('sc-if,sc-for,helmet,sc-helmet')) return false;
+      return (r.innerText||'').replace(/\s/g,'').length > 60;
+    }
+    function drop(){ mount(); c.style.opacity='0'; setTimeout(function(){ if(c.parentNode) c.parentNode.removeChild(c); },300); }
+    var iv=setInterval(function(){ if(ready()){ clearInterval(iv); requestAnimationFrame(drop); } },40);
+    setTimeout(function(){ clearInterval(iv); drop(); },8000);
+  })();
+  </script>
 </head>
 <body>
   <div id="__bundler_thumbnail">
